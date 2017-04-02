@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-02T11:45:29.000Z</updated>
+  <updated>2017-04-02T12:11:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,16 +20,24 @@
     <link href="http://yoursite.com/2017/04/02/install%20yii%20on%20mac/"/>
     <id>http://yoursite.com/2017/04/02/install yii on mac/</id>
     <published>2017-04-02T05:28:00.000Z</published>
-    <updated>2017-04-02T11:45:29.000Z</updated>
+    <updated>2017-04-02T12:11:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>过去一直在windows环境开发，今年给自己添置了一台2015款的rmbp，以后就决定在mac环境开发了，后续的文章如无特殊说明，均为mac环境。<br>mac环境刚开始用还不太习惯，熟悉起来发现效率还是很高的。工作关系要使用YII框架，本文算是一个安装入门篇。</p>
-<h4 id="先安装composer"><a href="#先安装composer" class="headerlink" title="先安装composer"></a>先安装composer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install composer</div></pre></td></tr></table></figure>
-<p>#### </p>
+    <content type="html"><![CDATA[<p>过去一直在windows环境开发，今年给自己添置了一台2015款的rmbp，以后就决定在mac环境开发了，后续的文章如无特殊说明，均为mac环境。<br>mac环境刚开始用还不太习惯，熟悉起来发现效率还是很高的。工作关系要使用Yii框架，本文算是一个安装入门篇。</p>
+<h4 id="安装Composer"><a href="#安装Composer" class="headerlink" title="安装Composer"></a>安装Composer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install composer</div></pre></td></tr></table></figure>
+<p>因为天朝防火墙的原因，我们切换Composer的镜像为国内的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure>
+<h4 id="安装-Composer-Asset-Plugin"><a href="#安装-Composer-Asset-Plugin" class="headerlink" title="安装 Composer Asset Plugin"></a>安装 Composer Asset Plugin</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer global require <span class="string">"fxp/composer-asset-plugin:^1.2.0"</span></div></pre></td></tr></table></figure>
+<h4 id="安装-Yii-basic"><a href="#安装-Yii-basic" class="headerlink" title="安装 Yii basic"></a>安装 Yii basic</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer create-project yiisoft/yii2-app-basic basic 2.0.11</div></pre></td></tr></table></figure>
+<p>因为引用了很多第三方资源，已经超出github的免费获取限制（貌似是这样），安装过程中需要输入一个github的token，登录你的github后，在settings里生成一个token即可。</p>
+<p>稍等片刻安装完成，目录：/Users/youname/basic</p>
+<p>进入安装目录，运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php yii serve</div></pre></td></tr></table></figure>
+<p>正常情况下，你会看到Yii的页面了</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;过去一直在windows环境开发，今年给自己添置了一台2015款的rmbp，以后就决定在mac环境开发了，后续的文章如无特殊说明，均为mac环境。&lt;br&gt;mac环境刚开始用还不太习惯，熟悉起来发现效率还是很高的。工作关系要使用YII框架，本文算是一个安装入门篇。&lt;/p&gt;
+      &lt;p&gt;过去一直在windows环境开发，今年给自己添置了一台2015款的rmbp，以后就决定在mac环境开发了，后续的文章如无特殊说明，均为mac环境。&lt;br&gt;mac环境刚开始用还不太习惯，熟悉起来发现效率还是很高的。工作关系要使用Yii框架，本文算是一个安装入门篇。&lt;/p&gt;
 &lt;
     
     </summary>
