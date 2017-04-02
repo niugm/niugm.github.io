@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-02T13:52:35.000Z</updated>
+  <updated>2017-04-02T13:55:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/04/02/install%20yii%20on%20mac/"/>
     <id>http://yoursite.com/2017/04/02/install yii on mac/</id>
     <published>2017-04-02T05:28:00.000Z</published>
-    <updated>2017-04-02T13:52:35.000Z</updated>
+    <updated>2017-04-02T13:55:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>Yii入门篇：mac下Composer安装Yii<br><a id="more"></a></p>
 <p>过去一直在windows环境开发，今年给自己添置了一台2015款的rmbp，以后就决定在mac环境开发了，后续的文章如无特殊说明，均为mac环境。mac环境刚开始用还不太习惯，熟悉起来发现效率还是很高的。工作关系要使用Yii框架，本文算是一个安装入门篇。使用官方推荐的Composer方式安装。</p>
@@ -41,13 +41,17 @@
 <hr>
 
 <p>Yii的默认url格式很不友好，可以使用pretty url配置美化</p>
-<h3 id="1、apache-配置"><a href="#1、apache-配置" class="headerlink" title="1、apache 配置"></a>1、apache 配置</h3><p>开启 rewrite 模块</p>
+<h4 id="1、apache-配置"><a href="#1、apache-配置" class="headerlink" title="1、apache 配置"></a>1、apache 配置</h4><p>开启 rewrite 模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LoadModule rewrite_module libexec/apache2/mod_rewrite.so</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;Directory /&gt;</div><div class="line">    AllowOverride all</div><div class="line">    #Require all denied</div><div class="line">    allow from all</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>
-<h3 id="2、项目配置"><a href="#2、项目配置" class="headerlink" title="2、项目配置"></a>2、项目配置</h3><p>baisc/config/web.php </p>
+<h4 id="2、项目配置"><a href="#2、项目配置" class="headerlink" title="2、项目配置"></a>2、项目配置</h4><p>baisc/config/web.php </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$config = [</div><div class="line">...</div><div class="line"> &apos;urlManager&apos; =&gt; [</div><div class="line">            &apos;enablePrettyUrl&apos; =&gt; true,  //启用美化url</div><div class="line">            &apos;showScriptName&apos; =&gt; false,   // 在URL路径中不显示入口脚本，既 index.php</div><div class="line">            &apos;rules&apos; =&gt;  [</div><div class="line">                /*&apos;&lt;controller:\w+&gt;/view/&lt;slug:[\w-]+&gt;&apos; =&gt; &apos;&lt;controller&gt;/view&apos;,</div><div class="line">                &apos;&lt;controller:\w+&gt;/&lt;action:\w+&gt;/&lt;id:\d+&gt;&apos; =&gt; &apos;&lt;controller&gt;/&lt;action&gt;&apos;,</div><div class="line">                &apos;&lt;controller:\w+&gt;/cat/&lt;slug:[\w-]+&gt;&apos; =&gt; &apos;&lt;controller&gt;/cat&apos;,*/</div><div class="line">            ],</div><div class="line">        ],</div><div class="line">...</div><div class="line">]</div></pre></td></tr></table></figure>
-<h3 id="3、htaccess-文件"><a href="#3、htaccess-文件" class="headerlink" title="3、htaccess 文件"></a>3、htaccess 文件</h3><p>在 basic/web 目录内，新建 .htaccess 文件，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore */*</div><div class="line">RewriteEngine on</div><div class="line"></div><div class="line"># if a directory or a file exists, use it directly</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line"># otherwise forward it to index.php</div><div class="line">RewriteRule ^(.*)$ index.php/$1</div><div class="line">#RewriteRule . index.php</div></pre></td></tr></table></figure>]]></content>
+<h4 id="3、htaccess-文件"><a href="#3、htaccess-文件" class="headerlink" title="3、htaccess 文件"></a>3、htaccess 文件</h4><p>在 basic/web 目录内，新建 .htaccess 文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Options +FollowSymLinks</div><div class="line">IndexIgnore */*</div><div class="line">RewriteEngine on</div><div class="line"></div><div class="line"># if a directory or a file exists, use it directly</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line"># otherwise forward it to index.php</div><div class="line">RewriteRule ^(.*)$ index.php/$1</div><div class="line">#RewriteRule . index.php</div></pre></td></tr></table></figure>
+<p>最后，重启 apache</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apachectl restart</div></pre></td></tr></table></figure>
+<p>END</p>
+]]></content>
     
     <summary type="html">
     
